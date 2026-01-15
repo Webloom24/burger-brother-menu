@@ -1,269 +1,4 @@
 /* ========================================
-   BURGER BROTHER - ESTILOS RESPONSIVE
-   ======================================== */
-
-/* ========================================
-   TABLETS Y DISPOSITIVOS MEDIANOS
-   Max-width: 1024px
-   ======================================== */
-
-@media (max-width: 1024px) {
-  /* Header */
-  .header-container {
-    padding: 1rem 1.5rem;
-  }
-
-  .logo-img {
-    width: 50px;
-    height: 50px;
-  }
-
-  .logo-text h1 {
-    font-size: 1.5rem;
-  }
-
-  .logo-text p {
-    font-size: 0.7rem;
-  }
-
-  /* Hero */
-  .hero {
-    padding: 2rem 1.5rem;
-  }
-
-  .hero-title {
-    font-size: 2.5rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.1rem;
-  }
-
-  /* Main container */
-  .main-container {
-    padding: 1.5rem;
-  }
-
-  /* Secciones */
-  .section-title {
-    font-size: 2rem;
-  }
-
-  .section-emoji {
-    font-size: 2.5rem;
-  }
-
-  /* Menu grid */
-  .menu-grid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.25rem;
-  }
-
-  /* Bebidas */
-  .bebidas-grid {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  }
-
-  .sodas-grid {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  }
-
-  /* Carrito sidebar */
-  .cart-sidebar {
-    max-width: 400px;
-  }
-}
-
-/* ========================================
-   TABLETS PEQUEÑAS
-   Max-width: 768px
-   ======================================== */
-
-@media (max-width: 768px) {
-  /* Variables responsive */
-  :root {
-    --spacing-xl: 2rem;
-    --spacing-lg: 1.5rem;
-  }
-
-  /* Header */
-  .header-container {
-    padding: 0.75rem 1rem;
-  }
-
-  .logo-img {
-    width: 45px;
-    height: 45px;
-  }
-
-  .logo-text h1 {
-    font-size: 1.3rem;
-    letter-spacing: 1px;
-  }
-
-  .logo-text p {
-    font-size: 0.65rem;
-  }
-
-  .cart-button {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-  }
-
-  .cart-button span {
-    display: none;
-  }
-
-  /* Hero */
-  .hero {
-    margin-top: 80px;
-    padding: 2rem 1rem;
-  }
-
-  .hero-title {
-    font-size: 2rem;
-    letter-spacing: 2px;
-  }
-
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-
-  /* Main container */
-  .main-container {
-    padding: 1rem;
-  }
-
-  /* Secciones */
-  .menu-section {
-    margin-bottom: 3rem;
-  }
-
-  .section-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-
-  .section-emoji {
-    font-size: 2rem;
-  }
-
-  .section-title {
-    font-size: 1.8rem;
-  }
-
-  .section-divider {
-    height: 25px;
-    margin: 1rem 0 1.5rem;
-  }
-
-  /* Menu grid */
-  .menu-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .menu-item {
-    padding: 1.25rem;
-  }
-
-  .item-name {
-    font-size: 1.2rem;
-  }
-
-  .item-description {
-    font-size: 0.85rem;
-  }
-
-  .item-price {
-    font-size: 1.6rem;
-  }
-
-  .btn-add-cart {
-    padding: 0.65rem 1.25rem;
-    font-size: 0.9rem;
-  }
-
-  /* Bebidas */
-  .bebidas-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 0.75rem;
-  }
-
-  .sodas-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 0.75rem;
-  }
-
-  .bebida-item {
-    padding: 0.85rem;
-  }
-
-  .bebida-name {
-    font-size: 0.9rem;
-  }
-
-  .bebida-price {
-    font-size: 1rem;
-  }
-
-  .sodas-title {
-    font-size: 1.5rem;
-  }
-
-  /* Carrito sidebar */
-  .cart-sidebar {
-    max-width: 100%;
-    right: -100%;
-  }
-
-  .cart-header {
-    padding: 1rem;
-  }
-
-  .cart-header h2 {
-    font-size: 1.5rem;
-  }
-
-  .cart-body {
-    padding: 1rem;
-  }
-
-  .cart-footer {
-    padding: 1rem;
-  }
-
-  .cart-total-label {
-    font-size: 1.2rem;
-  }
-
-  .cart-total-amount {
-    font-size: 1.8rem;
-  }
-
-  /* Footer */
-  .footer {
-    padding: 1.5rem 1rem;
-  }
-
-  .footer-logo {
-    font-size: 1.8rem;
-  }
-
-  .footer-text {
-    font-size: 0.85rem;
-  }
-
-  /* Notificaciones */
-  .notification {
-    right: 1rem;
-    left: 1rem;
-    max-width: none;
-  }
-}
-
-/* ========================================
    MÓVILES
    Max-width: 480px
    ======================================== */
@@ -453,28 +188,56 @@
     font-size: 1.3rem;
   }
 
-  /* Carrito sidebar */
+  /* ========================================
+     CARRITO SIDEBAR - MÓVIL (CORREGIDO)
+     ======================================== */
+
+  /* Header del carrito más compacto */
+  .cart-header {
+    padding: 0.75rem;
+    min-height: auto;
+  }
+
   .cart-header h2 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     letter-spacing: 1px;
   }
 
   .cart-close {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
   }
 
+  .cart-close svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Body del carrito con altura ajustada */
+  .cart-body {
+    padding: 0.75rem;
+    max-height: calc(100vh - 260px); /* Ajustado para que se vea todo */
+    overflow-y: auto;
+  }
+
+  /* Items del carrito más compactos */
   .cart-item {
     padding: 0.75rem;
-    gap: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .cart-item-info {
+    margin-bottom: 0.5rem;
   }
 
   .cart-item-name {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    line-height: 1.2;
   }
 
   .cart-item-price {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    margin-top: 0.15rem;
   }
 
   .cart-item-controls {
@@ -484,8 +247,8 @@
   .cart-btn-decrease,
   .cart-btn-increase,
   .cart-btn-remove {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
   }
 
   .cart-btn-decrease svg,
@@ -496,39 +259,66 @@
   }
 
   .cart-item-quantity {
-    font-size: 1rem;
-    min-width: 25px;
+    font-size: 0.95rem;
+    min-width: 28px;
   }
 
   .cart-item-subtotal {
-    font-size: 1.1rem;
-  }
-
-  .cart-total-row {
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-  }
-
-  .cart-total-label {
-    font-size: 1.1rem;
-  }
-
-  .cart-total-amount {
-    font-size: 1.6rem;
-  }
-
-  .cart-actions {
-    gap: 0.75rem;
-  }
-
-  .btn-cart-primary {
-    padding: 0.85rem;
     font-size: 1rem;
   }
 
-  .btn-cart-secondary {
+  /* Footer del carrito más compacto */
+  .cart-footer {
+    padding: 0.75rem;
+    min-height: auto;
+  }
+
+  .cart-total-row {
     padding: 0.65rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .cart-total-label {
+    font-size: 1rem;
+  }
+
+  .cart-total-amount {
+    font-size: 1.4rem;
+  }
+
+  .cart-actions {
+    gap: 0.65rem;
+  }
+
+  .btn-cart-primary {
+    padding: 0.75rem 0.85rem;
     font-size: 0.9rem;
+    min-height: 44px; /* Asegurar que sea fácil de tocar */
+  }
+
+  .btn-cart-primary svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .btn-cart-secondary {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.85rem;
+    min-height: 40px; /* Asegurar que sea fácil de tocar */
+  }
+
+  /* Carrito vacío más compacto */
+  .cart-empty {
+    padding: 2rem 1rem;
+  }
+
+  .cart-empty-icon {
+    font-size: 3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .cart-empty p {
+    font-size: 1rem;
   }
 
   /* Footer */
@@ -628,25 +418,80 @@
     font-size: 0.9rem;
   }
 
-  /* Carrito */
+  /* ========================================
+     CARRITO - MÓVILES PEQUEÑOS (CORREGIDO)
+     ======================================== */
+
+  .cart-header {
+    padding: 0.65rem;
+  }
+
   .cart-header h2 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+  }
+
+  .cart-close {
+    width: 28px;
+    height: 28px;
+  }
+
+  .cart-body {
+    padding: 0.65rem;
+    max-height: calc(100vh - 240px);
+  }
+
+  .cart-item {
+    padding: 0.65rem;
   }
 
   .cart-item-name {
+    font-size: 0.85rem;
+  }
+
+  .cart-item-price {
+    font-size: 0.75rem;
+  }
+
+  .cart-btn-decrease,
+  .cart-btn-increase,
+  .cart-btn-remove {
+    width: 28px;
+    height: 28px;
+  }
+
+  .cart-item-quantity {
     font-size: 0.9rem;
+    min-width: 24px;
+  }
+
+  .cart-item-subtotal {
+    font-size: 0.95rem;
+  }
+
+  .cart-footer {
+    padding: 0.65rem;
+  }
+
+  .cart-total-row {
+    padding: 0.6rem;
   }
 
   .cart-total-label {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .cart-total-amount {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .btn-cart-primary {
-    font-size: 0.95rem;
+    padding: 0.7rem;
+    font-size: 0.85rem;
+  }
+
+  .btn-cart-secondary {
+    padding: 0.55rem;
+    font-size: 0.8rem;
   }
 
   /* Footer */
@@ -682,8 +527,59 @@
     overflow-y: auto;
   }
 
+  /* Carrito en landscape - MÁS COMPACTO */
+  .cart-header {
+    padding: 0.5rem;
+  }
+
+  .cart-header h2 {
+    font-size: 1rem;
+  }
+
+  .cart-body {
+    max-height: calc(100vh - 180px);
+    padding: 0.5rem;
+  }
+
+  .cart-footer {
+    padding: 0.5rem;
+  }
+
+  .cart-total-row {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cart-actions {
+    gap: 0.5rem;
+  }
+
+  .btn-cart-primary,
+  .btn-cart-secondary {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* ========================================
+   FIX ESPECÍFICO PARA PANTALLAS MUY CORTAS
+   ======================================== */
+
+@media (max-height: 700px) {
   .cart-body {
     max-height: calc(100vh - 220px);
+  }
+}
+
+@media (max-height: 650px) {
+  .cart-body {
+    max-height: calc(100vh - 200px);
+  }
+}
+
+@media (max-height: 600px) {
+  .cart-body {
+    max-height: calc(100vh - 180px);
   }
 }
 
@@ -699,14 +595,6 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
-
-/* ========================================
-   MODO OSCURO DEL SISTEMA
-   ======================================== */
-
-@media (prefers-color-scheme: dark) {
-  /* Ya está en modo oscuro por defecto */
 }
 
 /* ========================================
