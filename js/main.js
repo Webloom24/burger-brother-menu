@@ -1,4 +1,4 @@
-// ======================================== 
+// ========================================
 // BURGER BROTHER - FUNCIONES PRINCIPALES
 // ========================================
 
@@ -25,7 +25,6 @@ function renderMenuSections() {
   const menuContainer = document.getElementById("menu-container");
   if (!menuContainer) return;
 
-  // Renderizar cada sección
   menuContainer.innerHTML = `
     ${renderSection(
       "Hamburguesas Clásicas",
@@ -74,7 +73,6 @@ function renderMenuSections() {
     ${renderBebidasSection()}
   `;
 
-  // Agregar event listeners a los botones de agregar
   addCartButtonListeners();
 }
 
@@ -188,7 +186,6 @@ function renderBebidaItem(item) {
 // ========================================
 
 function addCartButtonListeners() {
-  // Botones de items del menú
   const addButtons = document.querySelectorAll(
     ".btn-add-cart, .btn-add-bebida"
   );
@@ -199,7 +196,6 @@ function addCartButtonListeners() {
       const productData = JSON.parse(this.getAttribute("data-product"));
       cart.addItem(productData);
 
-      // Animación del botón
       this.classList.add("added");
       setTimeout(() => {
         this.classList.remove("added");
@@ -214,20 +210,15 @@ function addCartButtonListeners() {
 
 function initCategoryNavigation() {
   const categoryButtons = document.querySelectorAll(".category-btn");
-  const header = document.querySelector(".header");
-  const categoriesNav = document.querySelector(".categories-nav");
 
   categoryButtons.forEach((button) => {
     button.addEventListener("click", function () {
       const category = this.getAttribute("data-category");
 
-      // Actualizar botón activo
       categoryButtons.forEach((btn) => btn.classList.remove("active"));
       this.classList.add("active");
 
-      // Scroll a la categoría
       if (category === "todas") {
-        // Scroll al inicio
         window.scrollTo({
           top: 0,
           behavior: "smooth",
@@ -238,7 +229,6 @@ function initCategoryNavigation() {
     });
   });
 
-  // Detectar sección visible y actualizar botón activo
   observeSections();
 }
 
@@ -253,16 +243,13 @@ function scrollToSection(sectionId) {
   const header = document.querySelector(".header");
   const categoriesNav = document.querySelector(".categories-nav");
 
-  // Calcular altura total de headers
   const headerHeight = header ? header.offsetHeight : 0;
   const categoriesHeight = categoriesNav ? categoriesNav.offsetHeight : 0;
-  const totalOffset = headerHeight + categoriesHeight + 20; // +20px de margen extra
+  const totalOffset = headerHeight + categoriesHeight + 20;
 
-  // Obtener posición de la sección
   const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
   const targetPosition = sectionTop - totalOffset;
 
-  // Scroll suave
   window.scrollTo({
     top: targetPosition,
     behavior: "smooth",
@@ -279,7 +266,7 @@ function observeSections() {
 
   const observerOptions = {
     root: null,
-    rootMargin: "-150px 0px -50% 0px", // Ajustar según necesites
+    rootMargin: "-150px 0px -50% 0px",
     threshold: 0,
   };
 
@@ -288,14 +275,12 @@ function observeSections() {
       if (entry.isIntersecting) {
         const sectionId = entry.target.id;
 
-        // Actualizar botón activo
         categoryButtons.forEach((btn) => {
           const btnCategory = btn.getAttribute("data-category");
           if (btnCategory === sectionId) {
             categoryButtons.forEach((b) => b.classList.remove("active"));
             btn.classList.add("active");
 
-            // Hacer scroll horizontal del botón para que sea visible
             btn.scrollIntoView({
               behavior: "smooth",
               inline: "center",
@@ -330,13 +315,11 @@ function initScrollEffects() {
     });
   }, observerOptions);
 
-  // Observar todas las secciones del menú
   const sections = document.querySelectorAll(".menu-section");
   sections.forEach((section) => {
     observer.observe(section);
   });
 
-  // Observar items individuales
   const items = document.querySelectorAll(".menu-item, .bebida-item");
   items.forEach((item) => {
     observer.observe(item);
@@ -348,7 +331,6 @@ function initScrollEffects() {
 // ========================================
 
 function initAnimations() {
-  // Animación del header al cargar
   const header = document.querySelector(".header");
   if (header) {
     setTimeout(() => {
@@ -356,7 +338,6 @@ function initAnimations() {
     }, 100);
   }
 
-  // Animación del logo
   const logo = document.querySelector(".logo-img");
   if (logo) {
     logo.addEventListener("load", function () {
@@ -373,10 +354,8 @@ let lastScroll = 0;
 
 window.addEventListener("scroll", () => {
   const header = document.querySelector(".header");
-  const categoriesNav = document.querySelector(".categories-nav");
   const currentScroll = window.pageYOffset;
 
-  // Header scroll effects
   if (currentScroll <= 0) {
     header.classList.remove("scroll-up");
     header.classList.remove("scrolled");
@@ -384,56 +363,13 @@ window.addEventListener("scroll", () => {
     header.classList.add("scrolled");
   }
 
-  // Ocultar/mostrar header y categories al hacer scroll
   if (currentScroll > lastScroll && currentScroll > 100) {
-    // Scroll down
     header.classList.remove("scroll-up");
     header.classList.add("scroll-down");
   } else if (currentScroll < lastScroll) {
-    // Scroll up
     header.classList.remove("scroll-down");
     header.classList.add("scroll-up");
   }
 
   lastScroll = currentScroll;
-});
-
-// ========================================
-// FUNCIONALIDAD DE WHATSAPP
-// ========================================
-
-// Función para mostrar las opciones de contacto por WhatsApp
-function mostrarOpcionesWhatsApp() {
-  const contactoModal = document.createElement('div');
-  contactoModal.id = 'contacto-whatsapp-modal';
-  contactoModal.innerHTML = `
-    <div class="modal-content">
-      <h3>Elige el contacto:</h3>
-      <button class="whatsapp-option" onclick="contactarWhatsApp('3153838968', 'William Rodríguez')">William Rodríguez</button>
-      <button class="whatsapp-option" onclick="contactarWhatsApp('3166316429', 'James Rodríguez')">James Rodríguez</button>
-      <button class="close-modal" onclick="cerrarModal()">Cerrar</button>
-    </div>
-  `;
-  document.body.appendChild(contactoModal);
-}
-
-// Función para contactar por WhatsApp
-function contactarWhatsApp(numero, nombre) {
-  const mensaje = encodeURIComponent("¡Hola! Quiero hacer un pedido de Burger Brother 🍔");
-  const url = `https://wa.me/${numero}?text=${mensaje}`;
-  window.open(url, '_blank');
-  cerrarModal();  // Cerrar el modal después de seleccionar el contacto
-}
-
-// Función para cerrar el modal
-function cerrarModal() {
-  const modal = document.getElementById('contacto-whatsapp-modal');
-  if (modal) {
-    modal.remove();
-  }
-}
-
-// Añadir el event listener a los botones de WhatsApp
-document.querySelectorAll('.btn-whatsapp').forEach(button => {
-  button.addEventListener('click', mostrarOpcionesWhatsApp);
 });
