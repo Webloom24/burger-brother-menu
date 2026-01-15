@@ -231,27 +231,25 @@ class ShoppingCart {
 
     message += `━━━━━━━━━━━━━━━\n`;
     message += `💰 *TOTAL: ${formatearPrecio(this.getTotal())}*\n\n`;
-    message += `¡Gracias por tu preferencia! 🙌`;
 
-    return encodeURIComponent(message);
+    return message;
   }
 
   // ========================================
-  // ENVIAR PEDIDO POR WHATSAPP
+  // CERRAR CARRITO
   // ========================================
-  sendToWhatsApp() {
-    if (this.items.length === 0) {
-      this.showNotification("El carrito está vacío", "error");
-      return;
+  closeCart() {
+    const cartSidebar = document.getElementById("cart-sidebar");
+    const cartOverlay = document.getElementById("cart-overlay");
+
+    if (cartSidebar) {
+      cartSidebar.classList.remove("active");
+      document.body.style.overflow = "";
     }
 
-    const message = this.generateWhatsAppMessage();
-    const whatsappURL = `https://wa.me/${config.restaurante.whatsapp}?text=${message}`;
-
-    window.open(whatsappURL, "_blank");
-
-    // Opcional: limpiar carrito después de enviar
-    // this.clear();
+    if (cartOverlay) {
+      cartOverlay.classList.remove("active");
+    }
   }
 
   // ========================================
@@ -305,17 +303,7 @@ function openCart() {
 }
 
 function closeCart() {
-  const cartSidebar = document.getElementById("cart-sidebar");
-  const cartOverlay = document.getElementById("cart-overlay");
-
-  if (cartSidebar) {
-    cartSidebar.classList.remove("active");
-    document.body.style.overflow = "";
-  }
-
-  if (cartOverlay) {
-    cartOverlay.classList.remove("active");
-  }
+  cart.closeCart();
 }
 
 // ========================================
@@ -341,11 +329,23 @@ document.addEventListener("DOMContentLoaded", () => {
     overlay.addEventListener("click", closeCart);
   }
 
-  // Botón enviar pedido
+  // Botón enviar pedido - AQUÍ ESTÁ LA CORRECCIÓN
   const sendButton = document.getElementById("cart-send-whatsapp");
   if (sendButton) {
     sendButton.addEventListener("click", () => {
-      cart.sendToWhatsApp();
+      if (cart.items.length === 0) {
+        cart.showNotification("El carrito está vacío", "error");
+        return;
+      }
+
+      const mensaje = cart.generateWhatsAppMessage();
+
+      // Abrir modal de selección de WhatsApp
+      if (typeof whatsappModal !== "undefined") {
+        whatsappModal.open(mensaje);
+      } else {
+        console.error("whatsappModal no está definido");
+      }
     });
   }
 
