@@ -12,36 +12,24 @@
       content="hamburguesas, burger, perros calientes, picadas, comida rápida, delivery"
     />
     <meta name="author" content="Burger Brother" />
-
-    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Burger Brother - Menú Digital" />
     <meta
       property="og:description"
       content="La excelencia en el comer! Descubre nuestro menú completo."
     />
     <meta property="og:type" content="website" />
-
     <title>Burger Brother - Menú Digital</title>
-
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/logo.png" />
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Estilos -->
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/responsive.css" />
   </head>
   <body>
-    <!-- ========================================
-       HEADER
-       ======================================== -->
     <header class="header">
       <div class="header-container">
         <div class="logo">
@@ -55,7 +43,6 @@
             <p>La excelencia en el comer!</p>
           </div>
         </div>
-
         <button class="cart-button" aria-label="Abrir carrito de compras">
           <svg
             width="24"
@@ -79,9 +66,6 @@
       </div>
     </header>
 
-    <!-- ========================================
-       HERO / BANNER
-       ======================================== -->
     <section class="hero">
       <div class="hero-content">
         <h2 class="hero-title">¡Bienvenido a Burger Brother!</h2>
@@ -90,9 +74,7 @@
         </p>
       </div>
     </section>
-    <!-- ========================================
-       BARRA DE CATEGORÍAS / FILTROS
-       ======================================== -->
+
     <nav class="categories-nav" id="categories-nav">
       <div class="categories-container">
         <button class="category-btn active" data-category="todas">
@@ -126,25 +108,14 @@
         <button class="category-btn" data-category="bebidas">🥤 Bebidas</button>
       </div>
     </nav>
-    <!-- ========================================
-       MENÚ PRINCIPAL
-       ======================================== -->
+
     <main class="main-container">
-      <div id="menu-container">
-        <!-- El menú se renderizará aquí con JavaScript -->
-      </div>
+      <div id="menu-container"></div>
     </main>
 
-    <!-- ========================================
-       CARRITO - OVERLAY
-       ======================================== -->
     <div class="cart-overlay" id="cart-overlay"></div>
 
-    <!-- ========================================
-       CARRITO - SIDEBAR
-       ======================================== -->
     <aside class="cart-sidebar" id="cart-sidebar">
-      <!-- Header del carrito -->
       <div class="cart-header">
         <h2>🛒 Tu Pedido</h2>
         <button class="cart-close" aria-label="Cerrar carrito">
@@ -163,10 +134,7 @@
           </svg>
         </button>
       </div>
-
-      <!-- Contenido del carrito -->
       <div class="cart-body">
-        <!-- Carrito vacío -->
         <div class="cart-empty" id="cart-empty">
           <div class="cart-empty-icon">🍔</div>
           <p>Tu carrito está vacío</p>
@@ -174,22 +142,15 @@
             ¡Agrega algunos deliciosos productos!
           </p>
         </div>
-
-        <!-- Contenido del carrito -->
         <div class="cart-content" id="cart-content" style="display: none">
-          <div id="cart-items">
-            <!-- Los items se renderizarán aquí con JavaScript -->
-          </div>
+          <div id="cart-items"></div>
         </div>
       </div>
-
-      <!-- Footer del carrito -->
       <div class="cart-footer">
         <div class="cart-total-row">
           <span class="cart-total-label">Total:</span>
           <span class="cart-total-amount" id="cart-total">$0</span>
         </div>
-
         <div class="cart-actions">
           <button class="btn-cart-primary" id="cart-send-whatsapp">
             <svg
@@ -208,7 +169,6 @@
             </svg>
             Enviar Pedido por WhatsApp
           </button>
-
           <button class="btn-cart-secondary" id="cart-clear">
             Vaciar Carrito
           </button>
@@ -216,14 +176,57 @@
       </div>
     </aside>
 
-    <!-- ========================================
-       FOOTER
-       ======================================== -->
+    <div class="whatsapp-modal" id="whatsapp-modal">
+      <div class="modal-overlay" id="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close" id="modal-close">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <h3 class="modal-title">¿Con quién deseas chatear?</h3>
+        <p class="modal-subtitle">Selecciona un asesor para continuar</p>
+        <div class="whatsapp-options">
+          <button
+            class="whatsapp-option"
+            data-phone="573153838968"
+            data-name="Brother William"
+          >
+            <div class="option-icon">📱</div>
+            <div class="option-info">
+              <span class="option-name">Brother William</span>
+              <span class="option-number">315 383 8968</span>
+            </div>
+            <div class="option-arrow">→</div>
+          </button>
+          <button
+            class="whatsapp-option"
+            data-phone="573166316429"
+            data-name="Brother James"
+          >
+            <div class="option-icon">📱</div>
+            <div class="option-info">
+              <span class="option-name">Brother James</span>
+              <span class="option-number">316 631 6429</span>
+            </div>
+            <div class="option-arrow">→</div>
+          </button>
+        </div>
+      </div>
+    </div>
+
     <footer class="footer">
       <div class="footer-content">
-        <div class="footer-logo">Burger Brother</div>
+        <div class="footer-logo">BURGER BROTHER</div>
         <p class="footer-slogan">La excelencia en el comer!</p>
-
         <div class="footer-text">
           <p>🍔 Las mejores hamburguesas artesanales</p>
           <p>🌭 Perros calientes gourmet</p>
@@ -232,32 +235,41 @@
             <strong>Horarios:</strong> Lunes a Domingo
           </p>
         </div>
-
-        <a
-          href="https://wa.me/573153838968?text=¡Hola!%20Quiero%20hacer%20un%20pedido%20de%20Burger%20Brother%20🍔"
-          class="footer-whatsapp"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
-            />
-          </svg>
-          Contactar por WhatsApp
-        </a>
-
+        <div class="footer-whatsapp-buttons">
+          <a
+            href="https://wa.me/573153838968"
+            class="footer-whatsapp-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="whatsapp-btn-icon">📱</div>
+            <div class="whatsapp-btn-info">
+              <span class="whatsapp-btn-name">Brother William</span>
+              <span class="whatsapp-btn-number">315 383 8968</span>
+            </div>
+          </a>
+          <a
+            href="https://wa.me/573166316429"
+            class="footer-whatsapp-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="whatsapp-btn-icon">📱</div>
+            <div class="whatsapp-btn-info">
+              <span class="whatsapp-btn-name">Brother James</span>
+              <span class="whatsapp-btn-number">316 631 6429</span>
+            </div>
+          </a>
+        </div>
         <p style="margin-top: 2rem; font-size: 0.85rem; opacity: 0.6">
           &copy; 2025 Burger Brother. Todos los derechos reservados.
         </p>
       </div>
     </footer>
 
-    <!-- ========================================
-       SCRIPTS
-       ======================================== -->
     <script src="js/menu-data.js"></script>
     <script src="js/cart.js"></script>
+    <script src="js/whatsapp-modal.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
