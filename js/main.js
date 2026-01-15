@@ -1,4 +1,4 @@
-// ========================================
+// ======================================== 
 // BURGER BROTHER - FUNCIONES PRINCIPALES
 // ========================================
 
@@ -399,30 +399,41 @@ window.addEventListener("scroll", () => {
 });
 
 // ========================================
-// UTILIDADES
+// FUNCIONALIDAD DE WHATSAPP
 // ========================================
 
-// Función para copiar texto al portapapeles
-function copyToClipboard(text) {
-  navigator.clipboard
-    .writeText(text)
-    .then(() => {
-      cart.showNotification("Copiado al portapapeles", "success");
-    })
-    .catch((err) => {
-      console.error("Error al copiar:", err);
-    });
+// Función para mostrar las opciones de contacto por WhatsApp
+function mostrarOpcionesWhatsApp() {
+  const contactoModal = document.createElement('div');
+  contactoModal.id = 'contacto-whatsapp-modal';
+  contactoModal.innerHTML = `
+    <div class="modal-content">
+      <h3>Elige el contacto:</h3>
+      <button class="whatsapp-option" onclick="contactarWhatsApp('3153838968', 'William Rodríguez')">William Rodríguez</button>
+      <button class="whatsapp-option" onclick="contactarWhatsApp('3166316429', 'James Rodríguez')">James Rodríguez</button>
+      <button class="close-modal" onclick="cerrarModal()">Cerrar</button>
+    </div>
+  `;
+  document.body.appendChild(contactoModal);
 }
 
-// Función para compartir (Web Share API)
-function shareMenu() {
-  if (navigator.share) {
-    navigator
-      .share({
-        title: "Burger Brother",
-        text: "¡Mira nuestro menú!",
-        url: window.location.href,
-      })
-      .catch((err) => console.log("Error al compartir:", err));
+// Función para contactar por WhatsApp
+function contactarWhatsApp(numero, nombre) {
+  const mensaje = encodeURIComponent("¡Hola! Quiero hacer un pedido de Burger Brother 🍔");
+  const url = `https://wa.me/${numero}?text=${mensaje}`;
+  window.open(url, '_blank');
+  cerrarModal();  // Cerrar el modal después de seleccionar el contacto
+}
+
+// Función para cerrar el modal
+function cerrarModal() {
+  const modal = document.getElementById('contacto-whatsapp-modal');
+  if (modal) {
+    modal.remove();
   }
 }
+
+// Añadir el event listener a los botones de WhatsApp
+document.querySelectorAll('.btn-whatsapp').forEach(button => {
+  button.addEventListener('click', mostrarOpcionesWhatsApp);
+});
