@@ -297,6 +297,13 @@ const menuData = {
   // 🍟 PAPAS FRITAS
   papasFritas: [
     {
+      id: "papas-9",
+      nombre: "Nuggets",
+      descripcion: "Nuggets, maíz, papas a la francesa",
+      precio: 18000,
+      categoria: "papas",
+    },
+    {
       id: "papas-1",
       nombre: "Salchipapa Tradicional",
       descripcion: "Salchicha, papa ripio, queso costeño, papas a la francesa",
@@ -356,13 +363,6 @@ const menuData = {
       descripcion:
         "Maíz, pollo desmechado, cabano, queso fundido, tocineta, papas a la francesa",
       precio: 25000,
-      categoria: "papas",
-    },
-    {
-      id: "papas-9",
-      nombre: "Nuggets",
-      descripcion: "Nuggets, maíz, papas a la francesa",
-      precio: 18000,
       categoria: "papas",
     },
   ],
@@ -449,7 +449,7 @@ const menuData = {
     },
     {
       id: "bebida-14",
-      nombre: "Mega",
+      nombre: "Pega",
       precio: 12000,
       categoria: "bebidas-otras",
     },
