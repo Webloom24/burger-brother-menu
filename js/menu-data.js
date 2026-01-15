@@ -46,7 +46,7 @@ const menuData = {
       nombre: "Madurita",
       descripcion:
         "Pan brioche, carne de res, queso fundido, tajadas de maduro, tocineta, vegetales, cebolla en grille, maduro frito y papas a la francesa",
-      precio: 23000,
+      precio: 24000,
       categoria: "especiales",
     },
     {
@@ -505,3 +505,4 @@ function formatearPrecio(precio) {
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, config.moneda.separadorMiles)}`;
 }
+
