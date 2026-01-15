@@ -14,6 +14,14 @@ const menuData = {
       categoria: "clasicas",
     },
     {
+      id: "ham-4",
+      nombre: "Americana",
+      descripcion:
+        "Pan brioche, carne de res, queso cheddar fundido, tocineta, pepinillos, vegetales, cebolla en grille y papas a la francesa",
+      precio: 22000,
+      categoria: "clasicas",
+    },
+    {
       id: "ham-2",
       nombre: "Onion Burger",
       descripcion:
@@ -29,26 +37,18 @@ const menuData = {
       precio: 23000,
       categoria: "clasicas",
     },
-    {
-      id: "ham-4",
-      nombre: "Americana",
-      descripcion:
-        "Pan brioche, carne de res, queso cheddar fundido, tocineta, pepinillos, vegetales, cebolla en grille y papas a la francesa",
-      precio: 22000,
-      categoria: "clasicas",
-    },
+  ],
+
+  // ⭐ HAMBURGUESAS ESPECIALES
+  hamburguesasEspeciales: [
     {
       id: "ham-5",
       nombre: "Madurita",
       descripcion:
         "Pan brioche, carne de res, queso fundido, tajadas de maduro, tocineta, vegetales, cebolla en grille, maduro frito y papas a la francesa",
       precio: 23000,
-      categoria: "clasicas",
+      categoria: "especiales",
     },
-  ],
-
-  // ⭐ HAMBURGUESAS ESPECIALES
-  hamburguesasEspeciales: [
     {
       id: "ham-6",
       nombre: "Sister",
@@ -97,14 +97,6 @@ const menuData = {
       precio: 27000,
       categoria: "especiales",
     },
-    {
-      id: "ham-12",
-      nombre: "Burger Filete Ahumado",
-      descripcion:
-        "Pan brioche, carne de res, jamón ahumado de cerdo BBQ, queso fundido, tocineta, queso crema, vegetales, cebolla en grille, papas a la francesa",
-      precio: 28000,
-      categoria: "especiales",
-    },
   ],
 
   // 👑 HAMBURGUESAS PREMIUM
@@ -124,6 +116,14 @@ const menuData = {
         "Pan brioche, doble carne de res, doble queso, doble tocineta, vegetales, cebolla en grille, papas a la francesa",
       precio: 27000,
       categoria: "premium",
+    },
+    {
+      id: "ham-12",
+      nombre: "Burger Filete Ahumado",
+      descripcion:
+        "Pan brioche, carne de res, jamón ahumado de cerdo BBQ, queso fundido, tocineta, queso crema, vegetales, cebolla en grille, papas a la francesa",
+      precio: 28000,
+      categoria: "especiales",
     },
     {
       id: "ham-15",
@@ -315,7 +315,7 @@ const menuData = {
       nombre: "Salchipapa Americano",
       descripcion:
         "Salchicha americana, maíz, papa ripio, queso costeño, papas a la francesa",
-      precio: 16000,
+      precio: 18000,
       categoria: "papas",
     },
     {
