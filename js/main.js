@@ -63,6 +63,7 @@ function renderMenuSections() {
       "perros-especiales",
       "⭐"
     )}
+    ${renderSection("Papas Fritas", menuData.papasFritas, "papas-fritas", "🍟")}
     ${renderSection("Picadas", menuData.picadas, "picadas", "🍖")}
     ${renderSection(
       "Carnes Asadas",
@@ -70,7 +71,6 @@ function renderMenuSections() {
       "carnes-asadas",
       "🥩"
     )}
-    ${renderSection("Papas Fritas", menuData.papasFritas, "papas-fritas", "🍟")}
     ${renderBebidasSection()}
   `;
 
