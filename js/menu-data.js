@@ -449,7 +449,7 @@ const menuData = {
     },
     {
       id: "bebida-14",
-      nombre: "Pega",
+      nombre: "Mega",
       precio: 12000,
       categoria: "bebidas-otras",
     },
@@ -505,3 +505,4 @@ function formatearPrecio(precio) {
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, config.moneda.separadorMiles)}`;
 }
+
