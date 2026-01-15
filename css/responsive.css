@@ -633,3 +633,193 @@
     color: black;
   }
 }
+/* ========================================
+   FIX DEFINITIVO PARA CARRITO EN MÓVIL
+   ======================================== */
+
+@media (max-width: 480px) {
+  /* Reducir altura del header del carrito */
+  .cart-header {
+    padding: 0.6rem 0.75rem !important;
+    min-height: 50px;
+  }
+
+  .cart-header h2 {
+    font-size: 1.1rem !important;
+  }
+
+  /* Optimizar body del carrito */
+  .cart-body {
+    padding: 0.65rem !important;
+    max-height: calc(100vh - 240px) !important;
+  }
+
+  /* Hacer items más compactos */
+  .cart-item {
+    padding: 0.6rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .cart-item-info {
+    margin-bottom: 0.4rem !important;
+  }
+
+  .cart-item-name {
+    font-size: 0.9rem !important;
+    line-height: 1.1 !important;
+  }
+
+  .cart-item-price {
+    font-size: 0.75rem !important;
+    margin-top: 0.1rem !important;
+  }
+
+  /* Footer más compacto */
+  .cart-footer {
+    padding: 0.6rem 0.75rem !important;
+  }
+
+  .cart-total-row {
+    padding: 0.5rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+
+  .cart-total-label {
+    font-size: 0.95rem !important;
+  }
+
+  .cart-total-amount {
+    font-size: 1.3rem !important;
+  }
+
+  /* Botones más compactos pero táctiles */
+  .cart-actions {
+    gap: 0.5rem !important;
+  }
+
+  .btn-cart-primary {
+    padding: 0.65rem 0.75rem !important;
+    font-size: 0.85rem !important;
+    min-height: 42px !important;
+    line-height: 1.2 !important;
+  }
+
+  .btn-cart-primary svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .btn-cart-secondary {
+    padding: 0.5rem 0.65rem !important;
+    font-size: 0.8rem !important;
+    min-height: 38px !important;
+  }
+
+  /* Carrito vacío más compacto */
+  .cart-empty {
+    padding: 1.5rem 0.75rem !important;
+  }
+
+  .cart-empty-icon {
+    font-size: 2.5rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .cart-empty p {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Para pantallas MUY pequeñas */
+@media (max-width: 360px) {
+  .cart-header {
+    padding: 0.5rem !important;
+  }
+
+  .cart-body {
+    max-height: calc(100vh - 220px) !important;
+    padding: 0.5rem !important;
+  }
+
+  .cart-footer {
+    padding: 0.5rem !important;
+  }
+
+  .cart-total-row {
+    padding: 0.45rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .btn-cart-primary {
+    padding: 0.6rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  .btn-cart-secondary {
+    padding: 0.45rem !important;
+    font-size: 0.75rem !important;
+    min-height: 36px !important;
+  }
+}
+
+/* Para pantallas con altura limitada */
+@media (max-height: 700px) {
+  .cart-body {
+    max-height: calc(100vh - 230px) !important;
+  }
+}
+
+@media (max-height: 650px) {
+  .cart-header {
+    padding: 0.5rem !important;
+  }
+
+  .cart-body {
+    max-height: calc(100vh - 210px) !important;
+    padding: 0.5rem !important;
+  }
+
+  .cart-footer {
+    padding: 0.5rem !important;
+  }
+
+  .cart-total-row {
+    padding: 0.45rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .cart-actions {
+    gap: 0.4rem !important;
+  }
+
+  .btn-cart-primary {
+    padding: 0.55rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  .btn-cart-secondary {
+    padding: 0.45rem !important;
+    font-size: 0.75rem !important;
+  }
+}
+
+@media (max-height: 600px) {
+  .cart-body {
+    max-height: calc(100vh - 190px) !important;
+  }
+
+  .cart-header h2 {
+    font-size: 1rem !important;
+  }
+
+  .cart-item {
+    padding: 0.5rem !important;
+  }
+
+  .btn-cart-primary,
+  .btn-cart-secondary {
+    padding: 0.5rem !important;
+    font-size: 0.75rem !important;
+  }
+}
+
