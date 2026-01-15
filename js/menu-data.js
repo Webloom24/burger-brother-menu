@@ -111,9 +111,9 @@ const menuData = {
   hamburguesasPremium: [
     {
       id: "ham-13",
-      nombre: "El Jefe",
+      nombre: "200gr El JEFE",
       descripcion:
-        "200gr pan brioche, 200gr carne de res, queso fundido, aros de cebolla, queso crema, vegetales, cebolla en grille, papas a la francesa",
+        "Pan brioche, 200gr carne de res, queso fundido, aros de cebolla, queso crema, vegetales, cebolla en grille, papas a la francesa",
       precio: 27000,
       categoria: "premium",
     },
