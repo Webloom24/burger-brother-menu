@@ -449,7 +449,7 @@ const menuData = {
     },
     {
       id: "bebida-14",
-      nombre: "Pega",
+      nombre: "Mega",
       precio: 12000,
       categoria: "bebidas-otras",
     },
