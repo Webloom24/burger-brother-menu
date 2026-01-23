@@ -46,7 +46,7 @@ const menuData = {
       nombre: "Madurita",
       descripcion:
         "Pan brioche, carne de res, queso fundido, tajadas de maduro, tocineta, vegetales, cebolla en grille, maduro frito y papas a la francesa",
-      precio: 24000,
+      precio: 23000,
       categoria: "especiales",
     },
     {
@@ -114,7 +114,7 @@ const menuData = {
       nombre: "Doble Carne",
       descripcion:
         "Pan brioche, doble carne de res, doble queso, doble tocineta, vegetales, cebolla en grille, papas a la francesa",
-      precio: 27000,
+      precio: 28000,
       categoria: "premium",
     },
     {
@@ -123,14 +123,22 @@ const menuData = {
       descripcion:
         "Pan brioche, carne de res, jamón ahumado de cerdo BBQ, queso fundido, tocineta, queso crema, vegetales, cebolla en grille, papas a la francesa",
       precio: 28000,
-      categoria: "especiales",
+      categoria: "premium",
     },
     {
       id: "ham-15",
       nombre: "Americana Especial",
       descripcion:
         "Pan brioche, doble carne de res, doble cheddar fundido, doble tocineta, pepinillos, vegetales, cebolla en grille, papas a la francesa",
-      precio: 28000,
+      precio: 29000,
+      categoria: "premium",
+    },
+    {
+      id: "ham-reina-madurita",
+      nombre: "La Reina Madurita",
+      descripcion:
+        "Pan brioche, carne de res, carne desmechada, queso fundido, tajadas de maduro, tocineta, vegetales, cebolla en grille, papas a la francesa",
+      precio: 29000,
       categoria: "premium",
     },
   ],
@@ -142,7 +150,7 @@ const menuData = {
       nombre: "Doble Carne Especial",
       descripcion:
         "Pan brioche, doble carne de res, chorizo especial, doble queso fundido, tocineta, vegetales, cebolla en grille, papas a la francesa",
-      precio: 29000,
+      precio: 30000,
       categoria: "extremas",
     },
     {
@@ -150,7 +158,15 @@ const menuData = {
       nombre: "Master Especial",
       descripcion:
         "Pan brioche, carne de res, filete de pollo o pollo desmechado, chorizo, doble queso fundido, tocineta, vegetales, cebolla en grille, papas a la francesa",
-      precio: 29000,
+      precio: 30000,
+      categoria: "extremas",
+    },
+    {
+      id: "ham-la-gemela",
+      nombre: "La Gemela",
+      descripcion:
+        "Pan brioche, doble carne de res, queso cheddar, queso fundido, tocineta, vegetales, cebolla en grille, papas a la francesa",
+      precio: 30000,
       categoria: "extremas",
     },
     {
@@ -505,4 +521,3 @@ function formatearPrecio(precio) {
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, config.moneda.separadorMiles)}`;
 }
-
