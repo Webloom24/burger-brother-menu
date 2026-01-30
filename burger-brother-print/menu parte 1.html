@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Burger Brother - Menú Parte 1</title>
+    <style>
+      @media print {
+        * {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+      }
+
+      @page {
+        size: A3 landscape;
+        margin: 0.5cm;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Roboto", Arial, sans-serif;
+        background: #1a1a1a;
+        color: #ffffff;
+        position: relative;
+      }
+
+      /* LOGO DE FONDO GRANDE */
+      .background-logo {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 1000px;
+        height: 1000px;
+        opacity: 0.05;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .background-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      /* CONTENEDOR PRINCIPAL */
+      .menu-container {
+        position: relative;
+        z-index: 1;
+        padding: 0.35rem;
+      }
+
+      /* HEADER COMPACTO */
+      .menu-header {
+        text-align: center;
+        margin-bottom: 0.3rem;
+        padding-bottom: 0.2rem;
+        border-bottom: 2px solid #ffd700;
+      }
+
+      .logo-img {
+        width: 55px;
+        height: 55px;
+        margin: 0 auto 0.2rem;
+        display: block;
+      }
+
+      .main-title {
+        font-family: "Oswald", Impact, sans-serif;
+        font-size: 36pt;
+        font-weight: 900;
+        color: #ffd700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 0.1rem;
+        text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.9);
+        line-height: 1;
+      }
+
+      .main-slogan {
+        font-size: 10pt;
+        color: #ffffff;
+        font-style: italic;
+        letter-spacing: 1px;
+      }
+
+      /* GRID DE 3 COLUMNAS */
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+      }
+
+      .menu-column {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+
+      /* SECCIONES */
+      .menu-section {
+        background: rgba(26, 26, 26, 0.7);
+        padding: 0.3rem;
+        border-radius: 5px;
+      }
+
+      .section-title {
+        font-family: "Oswald", sans-serif;
+        font-size: 22pt;
+        font-weight: 900;
+        color: #ffd700;
+        text-transform: uppercase;
+        margin-bottom: 0.3rem;
+        text-align: center;
+        letter-spacing: 1.2px;
+        border-bottom: 2px solid #ffd700;
+        padding-bottom: 0.2rem;
+      }
+
+      /* ITEMS COMPACTOS */
+      .menu-item {
+        margin-bottom: 0.3rem;
+        padding-bottom: 0.25rem;
+        border-bottom: 1px solid #333;
+      }
+
+      .menu-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+      }
+
+      .item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 0.15rem;
+        gap: 0.5rem;
+      }
+
+      .item-name {
+        font-family: "Oswald", sans-serif;
+        font-size: 15pt;
+        font-weight: 700;
+        color: #ffd700;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        flex: 1;
+        line-height: 1.1;
+      }
+
+      .item-price {
+        font-family: "Oswald", sans-serif;
+        font-size: 12pt;
+        font-weight: 900;
+        color: #ffd700;
+        white-space: nowrap;
+      }
+
+      .item-desc {
+        font-size: 12pt;
+        color: #cccccc;
+        line-height: 1.25;
+      }
+
+      .badge-nuevo {
+        display: inline-block;
+        background: #dc143c;
+        color: #ffffff;
+        padding: 0.12rem 0.3rem;
+        border-radius: 3px;
+        font-size: 6.5pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-left: 0.25rem;
+        vertical-align: middle;
+      }
+
+      @media print {
+        body {
+          background: #1a1a1a !important;
+        }
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700;900&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- LOGO DE FONDO -->
+    <div class="background-logo">
+      <img src="https://i.imgur.com/tY4jorb.png" alt="Burger Brother" />
+    </div>
+
+    <div class="menu-container">
+      <!-- HEADER -->
+      <header class="menu-header">
+        <h1 class="main-title">BURGER BROTHER</h1>
+        <p class="main-slogan">La excelencia en el comer!</p>
+      </header>
+
+      <!-- GRID DE 3 COLUMNAS -->
+      <div class="menu-grid">
+        <!-- ========================
+             COLUMNA 1: 9 items
+             ======================== -->
+        <div class="menu-column">
+          <section class="menu-section">
+            <h2 class="section-title">🍔 HAMBURGUESAS CLÁSICAS</h2>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Clásica de Carne</h3>
+                <span class="item-price">$20.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, carne de res, queso fundido, tocineta, vegetales,
+                cebolla en grille y papas a la francesa
+              </p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Clásica de Pollo</h3>
+                <span class="item-price">$20.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, pechuga de pollo, queso fundido, tocineta, vegetales,
+                cebolla en grille y papas a la francesa
+              </p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Clásica de Cerdo</h3>
+                <span class="item-price">$20.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, carne de cerdo, queso fundido, tocineta, vegetales,
+                cebolla en grille y papas a la francesa
+              </p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Onion Burger</h3>
+                <span class="item-price">$22.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, carne de res, queso fundido, tocineta, vegetales,
+                aros de cebolla y papas a la francesa
+              </p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Americana</h3>
+                <span class="item-price">$22.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, carne de res, queso cheddar fundido, tocineta,
+                pepinillos, vegetales, cebolla en grille y papas a la francesa
+              </p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Bacon Burger</h3>
+                <span class="item-price">$23.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, carne de res, queso cheddar y fundido, tocineta
+                premium, vegetales, cebolla en grille y papas a la francesa
+              </p>
+            </div>
+          </section>
+
+          <section class="menu-section">
+            <h2 class="section-title">⭐ HAMBURGUESAS ESPECIALES</h2>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Madurita</h3>
+                <span class="item-price">$24.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, carne de res, queso fundido, tajadas de maduro,
+                tocineta, vegetales, cebolla en grille, maduro frito y papas a
+                la francesa
+              </p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Sister</h3>
+                <span class="item-price">$24.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, carne de res, pollo desmechado, queso, tocineta,
+                vegetales, cebolla en grille, papas a la francesa
+              </p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Bro Burger</h3>
+                <span class="item-price">$24.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, carne de res, chorizo especial, queso, tocineta,
+                vegetales, cebolla en grille, papas a la francesa
+              </p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Brother</h3>
+                <span class="item-price">$26.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, carne de res, pollo desmechado, doble queso
+                fundido, doble tocineta, vegetales, cebolla en grille, papas a
+                la francesa
+              </p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Doble Carne</h3>
+                <span class="item-price">$28.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, doble carne de res, doble queso, doble tocineta,
+                vegetales, cebolla en grille, papas a la francesa
+              </p>
+            </div>
+          </section>
+        </div>
+
+        <!-- ========================
+             COLUMNA 2: 8 items
+             ======================== -->
+        <div class="menu-column">
+          <section class="menu-section">
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Mixta</h3>
+                <span class="item-price">$27.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, carne de res, filete de pollo, doble queso,
+                tocineta, vegetales, cebolla en grille, papas a la francesa
+              </p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Ranchera</h3>
+                <span class="item-price">$27.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, carne de res, pollo desmechado, maíz, cabano,
+                tocineta, vegetales, cebolla en grille, papas a la francesa
+              </p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Desmechada</h3>
+                <span class="item-price">$27.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, carne de res, queso fundido, carne desmechada,
+                tocineta, vegetales, cebolla en grille y papas a la francesa
+              </p>
+            </div>
+          </section>
+
+          <section class="menu-section">
+            <h2 class="section-title">👑 HAMBURGUESAS PREMIUM</h2>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">200gr El JEFE</h3>
+                <span class="item-price">$27.000</span>
+              </div>
+              <p class="item-desc">
+                200gr pan brioche, 200gr carne de res, queso fundido, aros de
+                cebolla, queso crema, vegetales, cebolla en grille, papas a la
+                francesa
+              </p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Burger Filete Ahumado</h3>
+                <span class="item-price">$28.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, carne de res, jamón ahumado de cerdo BBQ, queso
+                fundido, tocineta, queso crema, vegetales, cebolla en grille,
+                papas a la francesa
+              </p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Americana Especial</h3>
+                <span class="item-price">$29.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, doble carne de res, doble cheddar fundido, doble
+                tocineta, pepinillos, vegetales, cebolla en grille, papas a la
+                francesa
+              </p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">La Reina Madurita</h3>
+                <span class="item-price">$29.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, carne de res, carne desmechada, queso fundido,
+                tajadas de maduro, tocineta, vegetales, cebolla en grille, papas
+                a la francesa
+              </p>
+            </div>
+          </section>
+
+          <section class="menu-section">
+            <h2 class="section-title">🔥 HAMBURGUESAS EXTREMAS</h2>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Doble Carne Especial</h3>
+                <span class="item-price">$30.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, doble carne de res, chorizo especial, doble queso
+                fundido, tocineta, vegetales, cebolla en grille, papas a la
+                francesa
+              </p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Master Especial</h3>
+                <span class="item-price">$30.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, carne de res, filete de pollo o pollo desmechado,
+                chorizo, doble queso fundido, tocineta, vegetales, cebolla en
+                grille, papas a la francesa
+              </p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">La Gemela</h3>
+                <span class="item-price">$30.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, doble carne de res, queso cheddar, queso fundido,
+                tocineta, vegetales, cebolla en grille, papas a la francesa
+              </p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Brother Burger D La Casa</h3>
+                <span class="item-price">$32.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, carne de res, filete de pollo, carne de cerdo,
+                doble queso, doble tocineta, vegetales, cebolla en grille, papas
+                a la francesa
+              </p>
+            </div>
+          </section>
+        </div>
+
+        <!-- ========================
+             COLUMNA 3: 8 items
+             ======================== -->
+        <div class="menu-column">
+          <section class="menu-section">
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">
+                  Burger La Mayor <span class="badge-nuevo">NUEVO</span>
+                </h3>
+                <span class="item-price">$34.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, triple carne de res, triple tocineta, triple queso,
+                vegetales, cebolla en grille, papas a la francesa
+              </p>
+            </div>
+          </section>
+
+          <section class="menu-section">
+            <h2 class="section-title">🌭 PERROS CLÁSICOS</h2>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Americano</h3>
+                <span class="item-price">$20.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, salchicha americana, cebolla en grille, papa ripio,
+                queso fundido, tocineta, papas a la francesa
+              </p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Choriperro</h3>
+                <span class="item-price">$20.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, chorizo especial, cebolla en grille, papa ripio,
+                queso fundido, tocineta, papas a la francesa
+              </p>
+            </div>
+          </section>
+
+          <section class="menu-section">
+            <h2 class="section-title">⭐ PERROS ESPECIALES</h2>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Salchichoriperro</h3>
+                <span class="item-price">$21.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, salchicha americana, chorizo especial, cebolla en
+                grille, papa ripio, queso fundido, tocineta, papas a la francesa
+              </p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Especial</h3>
+                <span class="item-price">$23.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, salchicha americana, pollo desmechado, papa ripio,
+                cebolla en grille, queso fundido, tocineta, papas a la francesa
+              </p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">
+                  Perro Ranchero <span class="badge-nuevo">NUEVO</span>
+                </h3>
+                <span class="item-price">$24.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, salchicha americana, pollo desmechado, maíz,
+                cabano, tocineta, cebolla en grille, queso, papas a la francesa
+              </p>
+            </div>
+            <div class="menu-item">
+              <div class="item-header">
+                <h3 class="item-name">Loco</h3>
+                <span class="item-price">$25.000</span>
+              </div>
+              <p class="item-desc">
+                Pan brioche, salchicha americana, trozos de carne de res, trozos
+                de filete de pollo, papa ripio, queso fundido, tocineta, cebolla
+                en grille, papas a la francesa
+              </p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

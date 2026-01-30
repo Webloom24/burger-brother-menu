@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Burger Brother - La excelencia en el comer! Las mejores hamburguesas, perros calientes y picadas de la ciudad."
+    />
+    <meta
+      name="keywords"
+      content="hamburguesas, burger, perros calientes, picadas, comida rápida, delivery"
+    />
+    <meta name="author" content="Burger Brother" />
+    <meta property="og:title" content="Burger Brother - Menú Digital" />
+    <meta
+      property="og:description"
+      content="La excelencia en el comer! Descubre nuestro menú completo."
+    />
+    <meta property="og:type" content="website" />
+    <title>Burger Brother - Menú Digital</title>
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-container">
+        <div class="logo">
+          <img
+            src="assets/logo.png"
+            alt="Burger Brother Logo"
+            class="logo-img"
+          />
+          <div class="logo-text">
+            <h1>Burger Brother</h1>
+            <p>La excelencia en el comer!</p>
+          </div>
+        </div>
+        <button class="cart-button" aria-label="Abrir carrito de compras">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path
+              d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+            ></path>
+          </svg>
+          <span>Carrito</span>
+          <span class="cart-badge" style="display: none">0</span>
+        </button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h2 class="hero-title">¡Bienvenido a Burger Brother!</h2>
+        <p class="hero-subtitle">
+          Descubre las mejores hamburguesas, perros y picadas de la ciudad
+        </p>
+      </div>
+    </section>
+
+    <nav class="categories-nav" id="categories-nav">
+      <div class="categories-container">
+        <button class="category-btn active" data-category="todas">
+          🍽️ Todas
+        </button>
+        <button class="category-btn" data-category="hamburguesas-clasicas">
+          🍔 Clásicas
+        </button>
+        <button class="category-btn" data-category="hamburguesas-especiales">
+          ⭐ Especiales
+        </button>
+        <button class="category-btn" data-category="hamburguesas-premium">
+          👑 Premium
+        </button>
+        <button class="category-btn" data-category="hamburguesas-extremas">
+          🔥 Extremas
+        </button>
+        <button class="category-btn" data-category="perros-clasicos">
+          🌭 Perros
+        </button>
+        <button class="category-btn" data-category="perros-especiales">
+          🌭 Perros Esp.
+        </button>
+        <button class="category-btn" data-category="papas-fritas">
+          🍟 Papas
+        </button>
+        <button class="category-btn" data-category="picadas">🍖 Picadas</button>
+        <button class="category-btn" data-category="carnes-asadas">
+          🥩 Carnes
+        </button>
+        <button class="category-btn" data-category="bebidas">🥤 Bebidas</button>
+      </div>
+    </nav>
+
+    <main class="main-container">
+      <div id="menu-container"></div>
+    </main>
+
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <aside class="cart-sidebar" id="cart-sidebar">
+      <div class="cart-header">
+        <h2>🛒 Tu Pedido</h2>
+        <button class="cart-close" aria-label="Cerrar carrito">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="cart-body">
+        <div class="cart-empty" id="cart-empty">
+          <div class="cart-empty-icon">🍔</div>
+          <p>Tu carrito está vacío</p>
+          <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.7">
+            ¡Agrega algunos deliciosos productos!
+          </p>
+        </div>
+        <div class="cart-content" id="cart-content" style="display: none">
+          <div id="cart-items"></div>
+        </div>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span class="cart-total-label">Total:</span>
+          <span class="cart-total-amount" id="cart-total">$0</span>
+        </div>
+        <div class="cart-actions">
+          <button class="btn-cart-primary" id="cart-send-whatsapp">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+              ></path>
+            </svg>
+            Enviar Pedido por WhatsApp
+          </button>
+          <button class="btn-cart-secondary" id="cart-clear">
+            Vaciar Carrito
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <div class="whatsapp-modal" id="whatsapp-modal">
+      <div class="modal-overlay" id="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close" id="modal-close">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <h3 class="modal-title">¿Con quién deseas chatear?</h3>
+        <p class="modal-subtitle">Selecciona un asesor para continuar</p>
+        <div class="whatsapp-options">
+          <button
+            class="whatsapp-option"
+            data-phone="573153838968"
+            data-name="Brother William"
+          >
+            <div class="option-icon">📱</div>
+            <div class="option-info">
+              <span class="option-name">Brother William</span>
+              <span class="option-number">315 383 8968</span>
+            </div>
+            <div class="option-arrow">→</div>
+          </button>
+          <button
+            class="whatsapp-option"
+            data-phone="573166316429"
+            data-name="Brother James"
+          >
+            <div class="option-icon">📱</div>
+            <div class="option-info">
+              <span class="option-name">Brother James</span>
+              <span class="option-number">316 631 6429</span>
+            </div>
+            <div class="option-arrow">→</div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">BURGER BROTHER</div>
+        <p class="footer-slogan">La excelencia en el comer!</p>
+        <div class="footer-text">
+          <p>🍔 Las mejores hamburguesas artesanales</p>
+          <p>🌭 Perros calientes gourmet</p>
+          <p>🍖 Picadas para compartir</p>
+          <p style="margin-top: 1rem">
+            <strong>Horarios:</strong> Lunes a Domingo
+          </p>
+        </div>
+        <div class="footer-whatsapp-buttons">
+          <a
+            href="https://wa.me/573153838968"
+            class="footer-whatsapp-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="whatsapp-btn-icon">📱</div>
+            <div class="whatsapp-btn-info">
+              <span class="whatsapp-btn-name">Brother William</span>
+              <span class="whatsapp-btn-number">315 383 8968</span>
+            </div>
+          </a>
+          <a
+            href="https://wa.me/573166316429"
+            class="footer-whatsapp-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="whatsapp-btn-icon">📱</div>
+            <div class="whatsapp-btn-info">
+              <span class="whatsapp-btn-name">Brother James</span>
+              <span class="whatsapp-btn-number">316 631 6429</span>
+            </div>
+          </a>
+        </div>
+        <p style="margin-top: 2rem; font-size: 0.85rem; opacity: 0.6">
+          &copy; 2025 Burger Brother. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/menu-data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/whatsapp-modal.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
