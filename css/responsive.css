@@ -1,4 +1,41 @@
 /* ========================================
+   OPTIMIZACIONES DE RENDIMIENTO PARA MÓVILES
+   ======================================== */
+
+/* Mejorar respuesta táctil eliminando delay de 300ms */
+.btn-add-cart,
+.btn-add-bebida,
+.cart-button,
+.category-btn,
+.cart-btn-decrease,
+.cart-btn-increase,
+.cart-btn-remove,
+.btn-cart-primary,
+.btn-cart-secondary,
+.whatsapp-option,
+.footer-whatsapp-btn {
+  touch-action: manipulation;
+}
+
+/* Optimizar scroll en contenedores */
+.categories-container,
+.cart-body {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Reducir trabajo del GPU en dispositivos de gama baja */
+@media (max-width: 480px) {
+  .cart-overlay {
+    backdrop-filter: blur(2px);
+  }
+
+  .modal-overlay {
+    backdrop-filter: blur(2px);
+  }
+}
+
+/* ========================================
    MÓVILES
    Max-width: 480px
    ======================================== */

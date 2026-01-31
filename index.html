@@ -12,6 +12,8 @@
       content="hamburguesas, burger, perros calientes, picadas, comida rápida, delivery"
     />
     <meta name="author" content="Burger Brother" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#000000" />
     <meta property="og:title" content="Burger Brother - Menú Digital" />
     <meta
       property="og:description"
@@ -22,10 +24,24 @@
     <link rel="icon" type="image/png" href="assets/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Carga asíncrona de fuentes para no bloquear renderizado -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/responsive.css" />
   </head>
@@ -37,6 +53,9 @@
             src="assets/logo.png"
             alt="Burger Brother Logo"
             class="logo-img"
+            width="60"
+            height="60"
+            fetchpriority="high"
           />
           <div class="logo-text">
             <h1>Burger Brother</h1>
@@ -267,9 +286,9 @@
       </div>
     </footer>
 
-    <script src="js/menu-data.js"></script>
-    <script src="js/cart.js"></script>
-    <script src="js/whatsapp-modal.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/menu-data.js" defer></script>
+    <script src="js/cart.js" defer></script>
+    <script src="js/whatsapp-modal.js" defer></script>
+    <script src="js/main.js" defer></script>
   </body>
 </html>

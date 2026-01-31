@@ -233,18 +233,23 @@ function initCategoryNavigation() {
 }
 
 // ========================================
-// SCROLL PERFECTO A SECCIÓN
+// SCROLL PERFECTO A SECCIÓN (OPTIMIZADO)
 // ========================================
+
+// Cache de elementos para evitar queries repetidas
+let cachedHeader = null;
+let cachedCategoriesNav = null;
 
 function scrollToSection(sectionId) {
   const section = document.getElementById(sectionId);
   if (!section) return;
 
-  const header = document.querySelector(".header");
-  const categoriesNav = document.querySelector(".categories-nav");
+  // Cachear referencias DOM
+  if (!cachedHeader) cachedHeader = document.querySelector(".header");
+  if (!cachedCategoriesNav) cachedCategoriesNav = document.querySelector(".categories-nav");
 
-  const headerHeight = header ? header.offsetHeight : 0;
-  const categoriesHeight = categoriesNav ? categoriesNav.offsetHeight : 0;
+  const headerHeight = cachedHeader ? cachedHeader.offsetHeight : 0;
+  const categoriesHeight = cachedCategoriesNav ? cachedCategoriesNav.offsetHeight : 0;
   const totalOffset = headerHeight + categoriesHeight + 20;
 
   const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
@@ -257,12 +262,20 @@ function scrollToSection(sectionId) {
 }
 
 // ========================================
-// OBSERVAR SECCIONES VISIBLES
+// OBSERVAR SECCIONES VISIBLES (OPTIMIZADO)
 // ========================================
 
 function observeSections() {
   const sections = document.querySelectorAll(".menu-section");
   const categoryButtons = document.querySelectorAll(".category-btn");
+
+  // Crear mapa de categoría -> botón para acceso O(1)
+  const buttonMap = new Map();
+  categoryButtons.forEach((btn) => {
+    buttonMap.set(btn.getAttribute("data-category"), btn);
+  });
+
+  let currentActiveSection = null;
 
   const observerOptions = {
     root: null,
@@ -275,19 +288,21 @@ function observeSections() {
       if (entry.isIntersecting) {
         const sectionId = entry.target.id;
 
-        categoryButtons.forEach((btn) => {
-          const btnCategory = btn.getAttribute("data-category");
-          if (btnCategory === sectionId) {
-            categoryButtons.forEach((b) => b.classList.remove("active"));
-            btn.classList.add("active");
+        // Evitar actualizaciones innecesarias si ya es la sección activa
+        if (currentActiveSection === sectionId) return;
+        currentActiveSection = sectionId;
 
-            btn.scrollIntoView({
-              behavior: "smooth",
-              inline: "center",
-              block: "nearest",
-            });
-          }
-        });
+        const targetBtn = buttonMap.get(sectionId);
+        if (targetBtn) {
+          categoryButtons.forEach((b) => b.classList.remove("active"));
+          targetBtn.classList.add("active");
+
+          targetBtn.scrollIntoView({
+            behavior: "smooth",
+            inline: "center",
+            block: "nearest",
+          });
+        }
       }
     });
   }, observerOptions);
@@ -298,7 +313,7 @@ function observeSections() {
 }
 
 // ========================================
-// ANIMACIONES AL SCROLL
+// ANIMACIONES AL SCROLL (OPTIMIZADO)
 // ========================================
 
 function initScrollEffects() {
@@ -311,18 +326,17 @@ function initScrollEffects() {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
+        // Dejar de observar una vez visible para liberar recursos
+        observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
 
+  // Solo observar secciones, no items individuales
+  // Los items heredan visibilidad de la sección padre
   const sections = document.querySelectorAll(".menu-section");
   sections.forEach((section) => {
     observer.observe(section);
-  });
-
-  const items = document.querySelectorAll(".menu-item, .bebida-item");
-  items.forEach((item) => {
-    observer.observe(item);
   });
 }
 
@@ -347,29 +361,37 @@ function initAnimations() {
 }
 
 // ========================================
-// DETECTAR SCROLL PARA HEADER
+// DETECTAR SCROLL PARA HEADER (OPTIMIZADO)
 // ========================================
 
 let lastScroll = 0;
+let ticking = false;
+const headerElement = document.querySelector(".header");
 
-window.addEventListener("scroll", () => {
-  const header = document.querySelector(".header");
+function updateHeaderOnScroll() {
   const currentScroll = window.pageYOffset;
 
   if (currentScroll <= 0) {
-    header.classList.remove("scroll-up");
-    header.classList.remove("scrolled");
+    headerElement.classList.remove("scroll-up", "scrolled");
   } else {
-    header.classList.add("scrolled");
+    headerElement.classList.add("scrolled");
   }
 
   if (currentScroll > lastScroll && currentScroll > 100) {
-    header.classList.remove("scroll-up");
-    header.classList.add("scroll-down");
+    headerElement.classList.remove("scroll-up");
+    headerElement.classList.add("scroll-down");
   } else if (currentScroll < lastScroll) {
-    header.classList.remove("scroll-down");
-    header.classList.add("scroll-up");
+    headerElement.classList.remove("scroll-down");
+    headerElement.classList.add("scroll-up");
   }
 
   lastScroll = currentScroll;
-});
+  ticking = false;
+}
+
+window.addEventListener("scroll", () => {
+  if (!ticking) {
+    requestAnimationFrame(updateHeaderOnScroll);
+    ticking = true;
+  }
+}, { passive: true });
